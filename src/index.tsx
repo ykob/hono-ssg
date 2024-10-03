@@ -1,8 +1,8 @@
-import { Hono } from "hono";
+import { Hono } from 'hono';
 
 // index.tsx
 const app = new Hono();
 
-app.get("/", (c) => c.html("Hello, World!"));
+app.get('/', (c) => c.html('Hello, World!'));
 
 export default app;
