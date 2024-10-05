@@ -15,6 +15,9 @@ importers:
       '@eslint/js':
         specifier: ^9.11.1
         version: 9.11.1
+      '@hono/vite-dev-server':
+        specifier: ^0.16.0
+        version: 0.16.0(hono@4.6.3)
       '@hono/vite-ssg':
         specifier: ^0.1.0
         version: 0.1.0(hono@4.6.3)
@@ -210,6 +213,25 @@ packages:
   '@eslint/plugin-kit@0.2.0':
     resolution: {integrity: sha512-vH9PiIMMwvhCx31Af3HiGzsVNULDbyVkHXwlemn/B0TFj/00ho3y55efXrUZTfQipxoHC5u4xq6zblww1zm1Ig==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@hono/node-server@1.13.1':
+    resolution: {integrity: sha512-TSxE6cT5RHnawbjnveexVN7H2Dpn1YaLxQrCOLCUwD+hFbqbFsnJBgdWcYtASqtWVjA+Qgi8uqFug39GsHjo5A==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      hono: ^4
+
+  '@hono/vite-dev-server@0.16.0':
+    resolution: {integrity: sha512-zGPaYY7DyDr33id677fUuaPiV2qQJoPrxv+nrcLc7g8M9PkcvlV8kO2XRkrwZT64rUSBxyWOuGN3vEIFiH9l0w==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      hono: '*'
+      miniflare: '*'
+      wrangler: '*'
+    peerDependenciesMeta:
+      miniflare:
+        optional: true
+      wrangler:
+        optional: true
 
   '@hono/vite-ssg@0.1.0':
     resolution: {integrity: sha512-tnkBilZ2/+y8w/X+R2Pf4Heu+Xyk4wO2KiBiEOvqqiXQC2yT8WAdiB17qk87og3ZuRCC/721ZZ736TpB6fGkWQ==}
@@ -948,6 +970,16 @@ snapshots:
   '@eslint/plugin-kit@0.2.0':
     dependencies:
       levn: 0.4.1
+
+  '@hono/node-server@1.13.1(hono@4.6.3)':
+    dependencies:
+      hono: 4.6.3
+
+  '@hono/vite-dev-server@0.16.0(hono@4.6.3)':
+    dependencies:
+      '@hono/node-server': 1.13.1(hono@4.6.3)
+      hono: 4.6.3
+      minimatch: 9.0.5
 
   '@hono/vite-ssg@0.1.0(hono@4.6.3)':
     dependencies:
