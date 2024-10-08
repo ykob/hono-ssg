@@ -1,10 +1,14 @@
 import { PropsWithChildren } from 'hono/jsx';
 
-export function Layout({ children }: PropsWithChildren) {
+type LayoutProps = PropsWithChildren<{
+  title: string;
+}>;
+
+export function Layout({ children, title }: LayoutProps) {
   return (
     <html>
       <head>
-        <title>My App</title>
+        <title>{title}</title>
       </head>
       <body>{children}</body>
     </html>
