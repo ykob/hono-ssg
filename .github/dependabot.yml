@@ -22,6 +22,12 @@ updates:
       prettier:
         patterns:
           - 'prettier*'
+      remark:
+        patterns:
+          - "rehype*"
+      remark:
+        patterns:
+          - "remark*"
       vite:
         patterns:
           - 'vite'
