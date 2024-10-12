@@ -19,9 +19,13 @@ const processor = remark()
 app.get('/', async (c) => {
   const file = fs.readFileSync('./src/index.md', 'utf-8');
   const content = await processor.process(file);
+  const props = {
+    title: 'Hello, World Title',
+    description: '',
+  };
 
   return c.html(
-    <Layout title="Hello, World Title">
+    <Layout {...props}>
       <div dangerouslySetInnerHTML={{ __html: String(content) }} />
     </Layout>,
   );
