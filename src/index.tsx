@@ -12,13 +12,13 @@ const app = new Hono();
 
 const processor = remark()
   .use(remarkParse)
+  .use(remarkGfm)
   .use(remarkRehype, { allowDangerousHtml: true })
-  .use(rehypeStringify, { allowDangerousHtml: true })
-  .use(remarkGfm);
+  .use(rehypeStringify, { allowDangerousHtml: true });
 
 app.get('/', async (c) => {
-  const file = fs.readFileSync('./src/index.md', 'utf-8');
-  const content = await processor.process(file);
+  const markdown = fs.readFileSync('./src/index.md', 'utf-8');
+  const content = await processor.process(markdown);
   const props = {
     title: 'Hello, World Title',
     description: '',
