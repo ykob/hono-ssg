@@ -7,7 +7,6 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import remarkStringfy from 'remark-stringify';
 import yaml from 'yaml';
 import { Layout } from './components';
 
@@ -15,7 +14,6 @@ import { Layout } from './components';
 const app = new Hono();
 const processor = remark()
   .use(remarkParse)
-  .use(remarkStringfy)
   .use(remarkFrontmatter)
   .use(remarkExtractFrontmatter, { yaml: yaml.parse })
   .use(remarkGfm)

@@ -57,9 +57,6 @@ importers:
       remark-rehype:
         specifier: ^11.1.1
         version: 11.1.1
-      remark-stringify:
-        specifier: ^11.0.0
-        version: 11.0.0
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
