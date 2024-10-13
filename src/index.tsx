@@ -38,17 +38,18 @@ app.get('/', async (c) => {
 app.get(
   '/posts/:id/',
   ssgParams(() => {
-    return posts.map((post) => {
-      return {
-        id: post.replace(/\.md$/, ''),
-      };
-    });
+    return posts.map((post) => ({
+      id: post.replace(/\.md$/, ''),
+    }));
   }),
   async (c) => {
-    const markdown = fs.readFileSync(
-      `./posts/${c.req.param('id')}.md`,
-      'utf-8',
-    );
+    const id = c.req.param('id');
+
+    if (id === ':id' || !posts.includes(`${id}.md`)) {
+      return c.notFound();
+    }
+
+    const markdown = fs.readFileSync(`./posts/${id}.md`, 'utf-8');
     const { data, value } = await processor.process(markdown);
     const props = {
       title: String(data.title) || '',
