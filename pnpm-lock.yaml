@@ -42,6 +42,12 @@ importers:
       remark:
         specifier: ^15.0.1
         version: 15.0.1
+      remark-extract-frontmatter:
+        specifier: ^3.2.0
+        version: 3.2.0
+      remark-frontmatter:
+        specifier: ^5.0.0
+        version: 5.0.0
       remark-gfm:
         specifier: ^4.0.0
         version: 4.0.0
@@ -51,6 +57,9 @@ importers:
       remark-rehype:
         specifier: ^11.1.1
         version: 11.1.1
+      remark-stringify:
+        specifier: ^11.0.0
+        version: 11.0.0
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
@@ -60,6 +69,9 @@ importers:
       vite:
         specifier: ^5.4.8
         version: 5.4.8(@types/node@22.7.5)
+      yaml:
+        specifier: ^2.5.1
+        version: 2.5.1
 
 packages:
 
@@ -627,6 +639,9 @@ packages:
   fastq@1.17.1:
     resolution: {integrity: sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==}
 
+  fault@2.0.1:
+    resolution: {integrity: sha512-WtySTkS4OKev5JtpHXnib4Gxiurzh5NCGvWrFaZ34m6JehfTUhKZvn9njTfw48t6JumVQOmrKqpmGcdwxnhqBQ==}
+
   file-entry-cache@8.0.0:
     resolution: {integrity: sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==}
     engines: {node: '>=16.0.0'}
@@ -645,6 +660,10 @@ packages:
 
   flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
+
+  format@0.2.2:
+    resolution: {integrity: sha512-wzsgA6WOq+09wrU1tsJ09udeR/YZRaeArL9e1wPbFg3GG2yDnC2ldKpxs4xunpFF9DgqCqOIra3bc1HWrJ37Ww==}
+    engines: {node: '>=0.4.x'}
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -753,6 +772,9 @@ packages:
   mdast-util-from-markdown@2.0.1:
     resolution: {integrity: sha512-aJEUyzZ6TzlsX2s5B4Of7lN7EQtAxvtradMMglCQDyaTFgse6CmtmdJ15ElnVRlCg1vpNyVtbem0PWzlNieZsA==}
 
+  mdast-util-frontmatter@2.0.1:
+    resolution: {integrity: sha512-LRqI9+wdgC25P0URIJY9vwocIzCcksduHQ9OF2joxQoyTNVduwLAFUzjoopuRJbJAReaKrNQKAZKL3uCMugWJA==}
+
   mdast-util-gfm-autolink-literal@2.0.1:
     resolution: {integrity: sha512-5HVP2MKaP6L+G6YaxPNjuL0BPrq9orG3TsrZ9YXbA3vDw/ACI4MEsnoDpn6ZNm7GnZgtAcONJyPhOP8tNJQavQ==}
 
@@ -789,6 +811,9 @@ packages:
 
   micromark-core-commonmark@2.0.1:
     resolution: {integrity: sha512-CUQyKr1e///ZODyD1U3xit6zXwy1a8q2a1S1HKtIlmgvurrEpaw/Y9y6KSIbF8P59cn/NjzHyO+Q2fAyYLQrAA==}
+
+  micromark-extension-frontmatter@2.0.0:
+    resolution: {integrity: sha512-C4AkuM3dA58cgZha7zVnuVxBhDsbttIMiytjgsM2XbHAB2faRVaHRle40558FBN+DJcrLNCoqG5mlrpdU4cRtg==}
 
   micromark-extension-gfm-autolink-literal@2.1.0:
     resolution: {integrity: sha512-oOg7knzhicgQ3t4QCjCWgTmfNhvQbDDnJeVu9v81r7NltNCVmhPy1fJRX27pISafdjL+SVc4d3l48Gb6pbRypw==}
@@ -960,6 +985,12 @@ packages:
   rehype-stringify@10.0.1:
     resolution: {integrity: sha512-k9ecfXHmIPuFVI61B9DeLPN0qFHfawM6RsuX48hoqlaKSF61RskNjSm1lI8PhBEM0MRdLxVVm4WmTqJQccH9mA==}
 
+  remark-extract-frontmatter@3.2.0:
+    resolution: {integrity: sha512-PmYwNCo0cMAUV3oAGg5Hn6YSZgiSDwVdxLJmPIZ804aYuvE5mAzozo5AkO0C8ELroWrtN/f9zzb0jqFPBkMnwg==}
+
+  remark-frontmatter@5.0.0:
+    resolution: {integrity: sha512-XTFYvNASMe5iPN0719nPrdItC9aU0ssC4v14mH1BCi1u0n1gAocqcujWUrByftZTbLhRtiKRyjYTSIOcr69UVQ==}
+
   remark-gfm@4.0.0:
     resolution: {integrity: sha512-U92vJgBPkbw4Zfu/IiW2oTZLSL3Zpv+uI7My2eq8JxKgqraFdU8YUGicEJCEgSbeaG+QDFqIcwwfMTOEelPxuA==}
 
@@ -1128,6 +1159,11 @@ packages:
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
+
+  yaml@2.5.1:
+    resolution: {integrity: sha512-bLQOjaX/ADgQ20isPJRvF0iRUHIxVhYvr53Of7wGcWlO2jvtUlH5m87DsmulFVxRpNLOnI4tB6p/oh8D7kpn9Q==}
+    engines: {node: '>= 14'}
+    hasBin: true
 
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
@@ -1642,6 +1678,10 @@ snapshots:
     dependencies:
       reusify: 1.0.4
 
+  fault@2.0.1:
+    dependencies:
+      format: 0.2.2
+
   file-entry-cache@8.0.0:
     dependencies:
       flat-cache: 4.0.1
@@ -1661,6 +1701,8 @@ snapshots:
       keyv: 4.5.4
 
   flatted@3.3.1: {}
+
+  format@0.2.2: {}
 
   fsevents@2.3.3:
     optional: true
@@ -1775,6 +1817,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  mdast-util-frontmatter@2.0.1:
+    dependencies:
+      '@types/mdast': 4.0.4
+      devlop: 1.1.0
+      escape-string-regexp: 5.0.0
+      mdast-util-from-markdown: 2.0.1
+      mdast-util-to-markdown: 2.1.0
+      micromark-extension-frontmatter: 2.0.0
+    transitivePeerDependencies:
+      - supports-color
+
   mdast-util-gfm-autolink-literal@2.0.1:
     dependencies:
       '@types/mdast': 4.0.4
@@ -1882,6 +1935,13 @@ snapshots:
       micromark-util-normalize-identifier: 2.0.0
       micromark-util-resolve-all: 2.0.0
       micromark-util-subtokenize: 2.0.1
+      micromark-util-symbol: 2.0.0
+      micromark-util-types: 2.0.0
+
+  micromark-extension-frontmatter@2.0.0:
+    dependencies:
+      fault: 2.0.1
+      micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
 
@@ -2132,6 +2192,17 @@ snapshots:
       hast-util-to-html: 9.0.3
       unified: 11.0.5
 
+  remark-extract-frontmatter@3.2.0: {}
+
+  remark-frontmatter@5.0.0:
+    dependencies:
+      '@types/mdast': 4.0.4
+      mdast-util-frontmatter: 2.0.1
+      micromark-extension-frontmatter: 2.0.0
+      unified: 11.0.5
+    transitivePeerDependencies:
+      - supports-color
+
   remark-gfm@4.0.0:
     dependencies:
       '@types/mdast': 4.0.4
@@ -2322,6 +2393,8 @@ snapshots:
       isexe: 2.0.0
 
   word-wrap@1.2.5: {}
+
+  yaml@2.5.1: {}
 
   yocto-queue@0.1.0: {}
 

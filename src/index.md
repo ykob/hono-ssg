@@ -1,3 +1,8 @@
+---
+title: hono-ssg
+description: Static Site Generator for Hono
+---
+
 # hono-ssg
 
 - https://github.com/honojs/hono
