@@ -26,8 +26,8 @@ app.get('/', async (c) => {
   const markdown = fs.readFileSync('./src/index.md', 'utf-8');
   const { data, value } = await processor.process(markdown);
   const props = {
-    title: data.title || '',
-    description: data.description || '',
+    title: String(data.title) || '',
+    description: String(data.description) || '',
   };
 
   return c.html(
