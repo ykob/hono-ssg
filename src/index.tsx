@@ -18,19 +18,24 @@ const processor = remark()
   .use(remarkGfm)
   .use(remarkRehype)
   .use(rehypeStringify);
-const posts = fs.readdirSync('./posts');
-
-app.get('/', async (c) => {
-  const markdown = fs.readFileSync('./src/index.md', 'utf-8');
+const convertMarkdownToHtml = async (markdown: string) => {
   const { data, value } = await processor.process(markdown);
   const props = {
     title: String(data.title) || '',
     description: String(data.description) || '',
   };
 
+  return { html: String(value), props };
+};
+const posts = fs.readdirSync('./posts');
+
+app.get('/', async (c) => {
+  const markdown = fs.readFileSync('./src/index.md', 'utf-8');
+  const { html, props } = await convertMarkdownToHtml(markdown);
+
   return c.html(
     <Layout {...props}>
-      <div dangerouslySetInnerHTML={{ __html: String(value) }} />
+      <div dangerouslySetInnerHTML={{ __html: String(html) }} />
     </Layout>,
   );
 });
@@ -50,15 +55,11 @@ app.get(
     }
 
     const markdown = fs.readFileSync(`./posts/${id}.md`, 'utf-8');
-    const { data, value } = await processor.process(markdown);
-    const props = {
-      title: String(data.title) || '',
-      description: String(data.description) || '',
-    };
+    const { html, props } = await convertMarkdownToHtml(markdown);
 
     return c.html(
       <Layout {...props}>
-        <div dangerouslySetInnerHTML={{ __html: String(value) }} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </Layout>,
     );
   },
