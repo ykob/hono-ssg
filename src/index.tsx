@@ -38,6 +38,20 @@ app.get('/', async (c) => {
   return c.html(
     <Layout {...props}>
       <div dangerouslySetInnerHTML={{ __html: String(html) }} />
+      <div>
+        <h2>Posts</h2>
+        <ul>
+          {posts.map((post) => {
+            const id = post.replace(/\.md$/, '');
+
+            return (
+              <li>
+                <a href={`/posts/${id}/`}>{id}</a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </Layout>,
   );
 });
