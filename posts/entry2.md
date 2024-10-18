@@ -1,6 +1,6 @@
 ---
 title: "Entry 2"
-date: "2020-01-01"
+date: "2024-02-01"
 ---
 
 # Entry 2

@@ -25,15 +25,24 @@ const convertMarkdownToHtml = async (markdown: string) => {
   const props = {
     title: String(data.title) || '',
     description: String(data.description) || '',
+    date: String(data.date) || '',
   };
 
   return { html: String(value), props };
 };
-const posts = fs.readdirSync('./posts');
+const postFiles = fs.readdirSync('./posts');
 
 app.get('/', async (c) => {
   const markdown = fs.readFileSync('./src/index.md', 'utf-8');
   const { html, props } = await convertMarkdownToHtml(markdown);
+  const posts = await Promise.all(
+    postFiles.map(async (file) => {
+      const id = file.replace(/\.md$/, '');
+      const markdown = fs.readFileSync(`./posts/${id}.md`, 'utf-8');
+      const { props } = await convertMarkdownToHtml(markdown);
+      return { id, props };
+    }),
+  );
 
   return c.html(
     <Layout {...props}>
@@ -41,12 +50,12 @@ app.get('/', async (c) => {
       <div>
         <h2>Posts</h2>
         <ul>
-          {posts.map((post) => {
-            const id = post.replace(/\.md$/, '');
-
+          {posts.map(async ({ id, props }) => {
             return (
               <li>
-                <a href={`/posts/${id}/`}>{id}</a>
+                <a href={`/posts/${id}/`}>
+                  {props.date} {props.title}
+                </a>
               </li>
             );
           })}
@@ -59,14 +68,14 @@ app.get('/', async (c) => {
 app.get(
   '/posts/:id/',
   ssgParams(() => {
-    return posts.map((post) => ({
-      id: post.replace(/\.md$/, ''),
+    return postFiles.map((file) => ({
+      id: file.replace(/\.md$/, ''),
     }));
   }),
   async (c) => {
     const id = c.req.param('id');
 
-    if (id === ':id' || !posts.includes(`${id}.md`)) {
+    if (id === ':id' || !postFiles.includes(`${id}.md`)) {
       return c.notFound();
     }
 
