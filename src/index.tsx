@@ -11,7 +11,6 @@ import remarkRehype from 'remark-rehype';
 import yaml from 'yaml';
 import { Layout } from './components';
 
-// index.tsx
 const app = new Hono();
 const processor = remark()
   .use(remarkFrontmatter)
@@ -20,6 +19,8 @@ const processor = remark()
   .use(remarkGfm)
   .use(remarkRehype)
   .use(rehypeStringify);
+const postFiles = fs.readdirSync('./posts');
+
 const convertMarkdownToHtml = async (markdown: string) => {
   const { data, value } = await processor.process(markdown);
   const props = {
@@ -30,19 +31,22 @@ const convertMarkdownToHtml = async (markdown: string) => {
 
   return { html: String(value), props };
 };
-const postFiles = fs.readdirSync('./posts');
-
-app.get('/', async (c) => {
-  const markdown = fs.readFileSync('./src/index.md', 'utf-8');
-  const { html, props } = await convertMarkdownToHtml(markdown);
-  const posts = await Promise.all(
+const loadPosts = () => {
+  return Promise.all(
     postFiles.map(async (file) => {
       const id = file.replace(/\.md$/, '');
       const markdown = fs.readFileSync(`./posts/${id}.md`, 'utf-8');
       const { props } = await convertMarkdownToHtml(markdown);
+
       return { id, props };
     }),
   );
+};
+
+app.get('/', async (c) => {
+  const markdown = fs.readFileSync('./src/index.md', 'utf-8');
+  const { html, props } = await convertMarkdownToHtml(markdown);
+  const posts = await loadPosts();
 
   return c.html(
     <Layout {...props}>
