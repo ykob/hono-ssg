@@ -38,7 +38,7 @@ const loadPosts = () => {
       const markdown = fs.readFileSync(`./posts/${id}.md`, 'utf-8');
       const { props } = await convertMarkdownToHtml(markdown);
 
-      return { id, props };
+      return { id, ...props };
     }),
   );
 };
@@ -54,11 +54,11 @@ app.get('/', async (c) => {
       <div>
         <h2>Posts</h2>
         <ul>
-          {posts.map(async ({ id, props }) => {
+          {posts.map(async ({ id, date, title }) => {
             return (
               <li>
                 <a href={`/posts/${id}/`}>
-                  {props.date} {props.title}
+                  {date} {title}
                 </a>
               </li>
             );
