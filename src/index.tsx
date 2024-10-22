@@ -42,11 +42,17 @@ const loadPosts = () => {
     }),
   );
 };
+const loadPostYears = async () => {
+  const posts = await loadPosts();
+
+  return [...new Set(posts.map((post) => post.date.split('-')[0]))];
+};
 
 app.get('/', async (c) => {
   const markdown = fs.readFileSync('./src/index.md', 'utf-8');
   const { html, props } = await convertMarkdownToHtml(markdown);
   const posts = await loadPosts();
+  console.log('years: ', await loadPostYears());
 
   return c.html(
     <Layout {...props}>

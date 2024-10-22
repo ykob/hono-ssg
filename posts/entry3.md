@@ -7,4 +7,3 @@ description: "This is the third entry."
 # Entry 3
 
 This is the third entry.
-
