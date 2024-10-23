@@ -52,7 +52,7 @@ app.get('/', async (c) => {
   const markdown = fs.readFileSync('./src/index.md', 'utf-8');
   const { html, props } = await convertMarkdownToHtml(markdown);
   const posts = await loadPosts();
-  console.log('years: ', await loadPostYears());
+  const postYears = await loadPostYears();
 
   return c.html(
     <Layout {...props}>
@@ -69,6 +69,16 @@ app.get('/', async (c) => {
               </li>
             );
           })}
+        </ul>
+      </div>
+      <div>
+        <h2>Archive</h2>
+        <ul>
+          {postYears.map((year) => (
+            <li>
+              <a href={`/archive/${year}/`}>{year}</a>
+            </li>
+          ))}
         </ul>
       </div>
     </Layout>,
@@ -95,6 +105,45 @@ app.get(
     return c.html(
       <Layout {...props}>
         <div dangerouslySetInnerHTML={{ __html: html }} />
+      </Layout>,
+    );
+  },
+);
+
+app.get(
+  '/archive/:year/',
+  ssgParams(async () => {
+    const postYears = await loadPostYears();
+
+    return postYears.map((year) => ({
+      year,
+    }));
+  }),
+  async (c) => {
+    const year = c.req.param('year');
+    const posts = await loadPosts();
+    const filteredPosts = posts.filter((post) => post.date.startsWith(year));
+    const props = {
+      title: `Archive ${year}`,
+      description: `Archive ${year}`,
+    };
+
+    if (year === ':year' || filteredPosts.length === 0) {
+      return c.notFound();
+    }
+
+    return c.html(
+      <Layout {...props}>
+        <h1>Archive {year}</h1>
+        <ul>
+          {filteredPosts.map((post) => (
+            <li>
+              <a href={`/posts/${post.id}/`}>
+                {post.date} {post.title}
+              </a>
+            </li>
+          ))}
+        </ul>
       </Layout>,
     );
   },
