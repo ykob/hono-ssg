@@ -31,7 +31,7 @@ const convertMarkdownToHtml = async (markdown: string) => {
 
   return { html: String(value), props };
 };
-const loadPosts = () => {
+const loadPostsAll = () => {
   return Promise.all(
     postFiles.map(async (file) => {
       const id = file.replace(/\.md$/, '');
@@ -42,8 +42,13 @@ const loadPosts = () => {
     }),
   );
 };
-const loadPostYears = async () => {
-  const posts = await loadPosts();
+const loadPostsByYear = async (year: string) => {
+  const posts = await loadPostsAll();
+
+  return posts.filter((post) => post.date.startsWith(year));
+};
+const loadYears = async () => {
+  const posts = await loadPostsAll();
 
   return [...new Set(posts.map((post) => post.date.split('-')[0]))];
 };
@@ -51,8 +56,8 @@ const loadPostYears = async () => {
 app.get('/', async (c) => {
   const markdown = fs.readFileSync('./src/index.md', 'utf-8');
   const { html, props } = await convertMarkdownToHtml(markdown);
-  const posts = await loadPosts();
-  const postYears = await loadPostYears();
+  const posts = await loadPostsAll();
+  const years = await loadYears();
 
   return c.html(
     <Layout {...props}>
@@ -74,7 +79,7 @@ app.get('/', async (c) => {
       <div>
         <h2>Archive</h2>
         <ul>
-          {postYears.map((year) => (
+          {years.map((year) => (
             <li>
               <a href={`/archive/${year}/`}>{year}</a>
             </li>
@@ -113,7 +118,7 @@ app.get(
 app.get(
   '/archive/:year/',
   ssgParams(async () => {
-    const postYears = await loadPostYears();
+    const postYears = await loadYears();
 
     return postYears.map((year) => ({
       year,
@@ -121,14 +126,13 @@ app.get(
   }),
   async (c) => {
     const year = c.req.param('year');
-    const posts = await loadPosts();
-    const filteredPosts = posts.filter((post) => post.date.startsWith(year));
+    const posts = await loadPostsByYear(year);
     const props = {
       title: `Archive ${year}`,
       description: `Archive ${year}`,
     };
 
-    if (year === ':year' || filteredPosts.length === 0) {
+    if (year === ':year' || posts.length === 0) {
       return c.notFound();
     }
 
@@ -136,7 +140,7 @@ app.get(
       <Layout {...props}>
         <h1>Archive {year}</h1>
         <ul>
-          {filteredPosts.map((post) => (
+          {posts.map((post) => (
             <li>
               <a href={`/posts/${post.id}/`}>
                 {post.date} {post.title}
