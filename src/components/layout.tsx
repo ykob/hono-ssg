@@ -24,7 +24,26 @@ export function Layout({ children, description, title }: LayoutProps) {
         <meta property="og:locale" content="ja_JP" />
         <Style />
       </head>
-      <body class={globalStyles}>{children}</body>
+      <body class={globalStyles}>
+        <div>
+          <header>
+            <h1>
+              <div>
+                <a href="/">hono-ssg</a>
+              </div>
+              <div>{title}</div>
+            </h1>
+          </header>
+          <main>{children}</main>
+          <nav>
+            <ul>
+              <li>
+                <a href="/">Home</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </body>
     </html>
   );
 }

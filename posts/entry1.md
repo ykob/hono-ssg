@@ -4,8 +4,6 @@ date: "2024-01-01"
 description: "This is the first entry."
 ---
 
-# Entry 1
-
 This is the first entry.
 
 ## Subheading 2
