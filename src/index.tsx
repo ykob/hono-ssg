@@ -60,7 +60,7 @@ app.get('/', async (c) => {
   const years = await loadYears();
 
   return c.html(
-    <Layout {...props}>
+    <Layout {...props} years={years}>
       <div dangerouslySetInnerHTML={{ __html: String(html) }} />
       <div>
         <h2>Posts</h2>
@@ -76,16 +76,6 @@ app.get('/', async (c) => {
           })}
         </ul>
       </div>
-      <div>
-        <h2>Archive</h2>
-        <ul>
-          {years.map((year) => (
-            <li>
-              <a href={`/archive/${year}/`}>{year}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
     </Layout>,
   );
 });
@@ -99,6 +89,7 @@ app.get(
   }),
   async (c) => {
     const id = c.req.param('id');
+    const years = await loadYears();
 
     if (id === ':id' || !postFiles.includes(`${id}.md`)) {
       return c.notFound();
@@ -108,7 +99,7 @@ app.get(
     const { html, props } = await convertMarkdownToHtml(markdown);
 
     return c.html(
-      <Layout {...props}>
+      <Layout {...props} years={years}>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </Layout>,
     );
@@ -126,6 +117,7 @@ app.get(
   }),
   async (c) => {
     const year = c.req.param('year');
+    const years = await loadYears();
     const posts = await loadPostsByYear(year);
     const props = {
       title: `Archive ${year}`,
@@ -137,8 +129,7 @@ app.get(
     }
 
     return c.html(
-      <Layout {...props}>
-        <h1>Archive {year}</h1>
+      <Layout years={years} {...props}>
         <ul>
           {posts.map((post) => (
             <li>

@@ -5,9 +5,10 @@ import { globalStyles } from '../styles/global';
 type LayoutProps = PropsWithChildren<{
   description: string;
   title: string;
+  years: string[];
 }>;
 
-export function Layout({ children, description, title }: LayoutProps) {
+export function Layout({ children, description, title, years }: LayoutProps) {
   return (
     <html>
       <head>
@@ -40,6 +41,11 @@ export function Layout({ children, description, title }: LayoutProps) {
               <li>
                 <a href="/">Home</a>
               </li>
+              {years.map((year) => (
+                <li>
+                  <a href={`/archive/${year}/`}>{year}</a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
