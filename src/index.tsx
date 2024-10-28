@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import fs from 'fs';
 import { Hono } from 'hono';
 import { ssgParams } from 'hono/ssg';
@@ -69,7 +70,7 @@ app.get('/', async (c) => {
             return (
               <li>
                 <a href={`/posts/${id}/`}>
-                  {date} {title}
+                  {dayjs(date).format('YYYY/MM/DD')} {title}
                 </a>
               </li>
             );
@@ -100,6 +101,7 @@ app.get(
 
     return c.html(
       <Layout {...props} years={years}>
+        <div>{dayjs(props.date).format('YYYY/MM/DD')}</div>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </Layout>,
     );

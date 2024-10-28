@@ -1,6 +1,6 @@
 ---
 title: "Entry 1"
-date: "2024-01-01"
+date: "2024-01-01T10:00:00+09:00"
 description: "This is the first entry."
 ---
 
