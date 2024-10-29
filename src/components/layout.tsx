@@ -28,12 +28,9 @@ export function Layout({ children, description, title, years }: LayoutProps) {
       <body class={globalStyles}>
         <div>
           <header>
-            <h1>
-              <div>
-                <a href="/">hono-ssg</a>
-              </div>
-              <div>{title}</div>
-            </h1>
+            <div>
+              <a href="/">hono-ssg</a>
+            </div>
           </header>
           <main>{children}</main>
           <nav>

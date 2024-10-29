@@ -62,6 +62,7 @@ app.get('/', async (c) => {
 
   return c.html(
     <Layout {...props} years={years}>
+      <h1>hono-ssg</h1>
       <div dangerouslySetInnerHTML={{ __html: String(html) }} />
       <div>
         <h2>Posts</h2>
@@ -101,6 +102,7 @@ app.get(
 
     return c.html(
       <Layout {...props} years={years}>
+        <h1>{props.title}</h1>
         <div>{dayjs(props.date).format('YYYY/MM/DD')}</div>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </Layout>,
