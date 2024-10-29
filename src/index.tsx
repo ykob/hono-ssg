@@ -136,7 +136,7 @@ app.get(
           {posts.map((post) => (
             <li>
               <a href={`/posts/${post.id}/`}>
-                {post.date} {post.title}
+                {dayjs(post.date).format('YYYY/MM/DD')} {post.title}
               </a>
             </li>
           ))}
