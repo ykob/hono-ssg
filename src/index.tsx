@@ -46,7 +46,7 @@ const loadPostsAll = () => {
 const loadPostsByYear = async (year: string) => {
   const posts = await loadPostsAll();
 
-  return posts.filter((post) => post.date.startsWith(year));
+  return posts.filter((post) => dayjs(post.date).format('YYYY') === year);
 };
 const loadYears = async () => {
   const posts = await loadPostsAll();
@@ -134,6 +134,7 @@ app.get(
 
     return c.html(
       <Layout years={years} {...props}>
+        <h1>Archive {year}</h1>
         <ul>
           {posts.map((post) => (
             <li>
