@@ -1,4 +1,4 @@
-import { Style } from 'hono/css';
+import { css, Style } from 'hono/css';
 import { PropsWithChildren } from 'hono/jsx';
 import { globalStyles } from '../styles/global';
 
@@ -23,16 +23,22 @@ export function Layout({ children, description, title, years }: LayoutProps) {
         <meta property="og:site_name" content="hono-ssg" />
         <meta property="og:description" content={description} />
         <meta property="og:locale" content="ja_JP" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
         <Style />
       </head>
       <body class={globalStyles}>
-        <div>
+        <div class={styles.container}>
           <header>
             <div>
               <a href="/">hono-ssg</a>
             </div>
           </header>
-          <main>{children}</main>
+          <main class={styles.main}>{children}</main>
           <nav>
             <ul>
               <li>
@@ -50,3 +56,17 @@ export function Layout({ children, description, title, years }: LayoutProps) {
     </html>
   );
 }
+
+const styles = {
+  container: css`
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 24px;
+    padding: 40px 80px;
+  `,
+  main: css`
+    grid-column: 2;
+    grid-row: 1 / 3;
+  `,
+};

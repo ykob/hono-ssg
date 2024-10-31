@@ -32,8 +32,16 @@ const convertMarkdownToHtml = async (markdown: string) => {
 
   return { html: String(value), props };
 };
-const loadPostsAll = () => {
-  return Promise.all(
+const loadPosts = async ({
+  year,
+  offset,
+  perPage,
+}: {
+  year?: string;
+  offset?: number;
+  perPage?: number;
+} = {}) => {
+  const posts = await Promise.all(
     postFiles.map(async (file) => {
       const id = file.replace(/\.md$/, '');
       const markdown = fs.readFileSync(`./posts/${id}.md`, 'utf-8');
@@ -42,14 +50,23 @@ const loadPostsAll = () => {
       return { id, ...props };
     }),
   );
-};
-const loadPostsByYear = async (year: string) => {
-  const posts = await loadPostsAll();
 
-  return posts.filter((post) => dayjs(post.date).format('YYYY') === year);
+  return posts
+    .filter((post) => {
+      if (year) {
+        return dayjs(post.date).format('YYYY') === year;
+      }
+      return true;
+    })
+    .filter((_, i) => {
+      if (offset !== undefined && perPage !== undefined) {
+        return i >= offset && i < offset + perPage;
+      }
+      return true;
+    });
 };
 const loadYears = async () => {
-  const posts = await loadPostsAll();
+  const posts = await loadPosts();
 
   return [...new Set(posts.map((post) => post.date.split('-')[0]))];
 };
@@ -57,7 +74,7 @@ const loadYears = async () => {
 app.get('/', async (c) => {
   const markdown = fs.readFileSync('./src/index.md', 'utf-8');
   const { html, props } = await convertMarkdownToHtml(markdown);
-  const posts = await loadPostsAll();
+  const posts = await loadPosts();
   const years = await loadYears();
 
   return c.html(
@@ -122,7 +139,7 @@ app.get(
   async (c) => {
     const year = c.req.param('year');
     const years = await loadYears();
-    const posts = await loadPostsByYear(year);
+    const posts = await loadPosts({ year });
     const props = {
       title: `Archive ${year}`,
       description: `Archive ${year}`,
