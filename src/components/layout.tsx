@@ -38,7 +38,9 @@ export function Layout({ children, description, title, years }: LayoutProps) {
               <a href="/">hono-ssg</a>
             </div>
           </header>
-          <main class={styles.main}>{children}</main>
+          <main class={styles.main}>
+            <div class={styles.mainIn}>{children}</div>
+          </main>
           <nav>
             <ul>
               <li>
@@ -77,5 +79,9 @@ const styles = {
       grid-column: 2;
       grid-row: 1 / 3;
     }
+  `,
+  mainIn: css`
+    max-width: 1024px;
+    margin-inline: auto;
   `,
 };
