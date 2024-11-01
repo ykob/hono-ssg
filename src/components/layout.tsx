@@ -60,13 +60,22 @@ export function Layout({ children, description, title, years }: LayoutProps) {
 const styles = {
   container: css`
     display: grid;
-    grid-template-columns: 240px 1fr;
-    grid-template-rows: auto 1fr;
     gap: 24px;
-    padding: 40px 80px;
+    @media (width < 1024px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      padding: 24px 20px;
+    }
+    @media (width >= 1024px) {
+      grid-template-columns: 240px 1fr;
+      grid-template-rows: auto 1fr;
+      padding: 40px 80px;
+    }
   `,
   main: css`
-    grid-column: 2;
-    grid-row: 1 / 3;
+    @media (width >= 1024px) {
+      grid-column: 2;
+      grid-row: 1 / 3;
+    }
   `,
 };
