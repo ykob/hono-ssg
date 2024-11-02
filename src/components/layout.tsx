@@ -33,7 +33,7 @@ export function Layout({ children, description, title, years }: LayoutProps) {
       </head>
       <body class={globalStyles}>
         <div class={styles.container}>
-          <header>
+          <header class={styles.header}>
             <div>
               <a href="/">hono-ssg</a>
             </div>
@@ -42,16 +42,18 @@ export function Layout({ children, description, title, years }: LayoutProps) {
             <div class={styles.mainIn}>{children}</div>
           </main>
           <nav>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              {years.map((year) => (
+            <div class={styles.nav}>
+              <ul>
                 <li>
-                  <a href={`/archive/${year}/`}>{year}</a>
+                  <a href="/">Home</a>
                 </li>
-              ))}
-            </ul>
+                {years.map((year) => (
+                  <li>
+                    <a href={`/archive/${year}/`}>{year}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </nav>
         </div>
       </body>
@@ -74,6 +76,7 @@ const styles = {
       padding: 40px 80px;
     }
   `,
+  header: css``,
   main: css`
     @media (width >= 1024px) {
       grid-column: 2;
@@ -83,5 +86,11 @@ const styles = {
   mainIn: css`
     max-width: 1024px;
     margin-inline: auto;
+  `,
+  nav: css`
+    display: block;
+    position: sticky;
+    top: 0;
+    left: 0;
   `,
 };
