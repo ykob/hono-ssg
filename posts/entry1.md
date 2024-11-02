@@ -4,8 +4,6 @@ date: "2024-01-01T10:00:00+09:00"
 description: "This is the first entry."
 ---
 
-This is the first entry.
-
 ## Subheading 2
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus aliquet dui, eu ornare odio blandit nec. Maecenas pulvinar, ex ac rutrum laoreet, nisl justo tempus mauris, in gravida nunc urna id libero. Nullam risus dolor, consequat ut ultricies et, aliquam eget diam. Suspendisse et elit ipsum. Duis diam purus, vehicula et congue quis, finibus in ipsum. Duis condimentum purus metus, a pharetra odio faucibus nec. Ut convallis quis libero nec commodo.

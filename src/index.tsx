@@ -10,7 +10,7 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import yaml from 'yaml';
-import { Layout } from './components';
+import { Article, Layout } from './components';
 
 const app = new Hono();
 const processor = remark()
@@ -119,9 +119,7 @@ app.get(
 
     return c.html(
       <Layout {...props} years={years}>
-        <h1>{props.title}</h1>
-        <div>{dayjs(props.date).format('YYYY/MM/DD')}</div>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <Article {...props} html={html} />
       </Layout>,
     );
   },
