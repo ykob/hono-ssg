@@ -1,3 +1,4 @@
+import { mdiGithub, mdiTwitter } from '@mdi/js';
 import { css, Style } from 'hono/css';
 import { PropsWithChildren } from 'hono/jsx';
 import { globalStyles } from '../styles/global';
@@ -52,6 +53,32 @@ export function Layout({ children, description, title, years }: LayoutProps) {
                     <a href={`/archive/${year}/`}>{year}</a>
                   </li>
                 ))}
+              </ul>
+              <ul>
+                <li>
+                  <a href="https://x.com/ykob0123" target="_blank">
+                    <svg
+                      class="icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d={mdiTwitter} />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/ykob" target="_blank">
+                    <svg
+                      class="icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d={mdiGithub} />
+                    </svg>
+                  </a>
+                </li>
               </ul>
             </div>
           </nav>
