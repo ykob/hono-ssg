@@ -2,6 +2,7 @@ import { mdiGithub, mdiTwitter } from '@mdi/js';
 import { css, Style } from 'hono/css';
 import { PropsWithChildren } from 'hono/jsx';
 import { globalStyles } from '../styles/global';
+import { LinkButton } from './';
 
 type LayoutProps = PropsWithChildren<{
   description: string;
@@ -56,7 +57,7 @@ export function Layout({ children, description, title, years }: LayoutProps) {
               </ul>
               <ul>
                 <li>
-                  <a href="https://x.com/ykob0123" target="_blank">
+                  <LinkButton href="https://x.com/ykob0123" target="_blank">
                     <svg
                       class="icon"
                       width="24"
@@ -65,10 +66,10 @@ export function Layout({ children, description, title, years }: LayoutProps) {
                     >
                       <path d={mdiTwitter} />
                     </svg>
-                  </a>
+                  </LinkButton>
                 </li>
                 <li>
-                  <a href="https://github.com/ykob" target="_blank">
+                  <LinkButton href="https://github.com/ykob" target="_blank">
                     <svg
                       class="icon"
                       width="24"
@@ -77,7 +78,7 @@ export function Layout({ children, description, title, years }: LayoutProps) {
                     >
                       <path d={mdiGithub} />
                     </svg>
-                  </a>
+                  </LinkButton>
                 </li>
               </ul>
             </div>
