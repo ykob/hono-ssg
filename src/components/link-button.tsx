@@ -21,7 +21,15 @@ const styles = {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
-    background-color: #0070f3;
+    border-radius: 6px;
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+    &:hover {
+      color: #fff;
+      background-color: #e11d48;
+    }
+    & svg {
+      fill: currentColor;
+    }
   `,
 };

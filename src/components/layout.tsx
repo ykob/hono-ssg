@@ -55,7 +55,7 @@ export function Layout({ children, description, title, years }: LayoutProps) {
                   </li>
                 ))}
               </ul>
-              <ul>
+              <ul class={styles.socialLinks}>
                 <li>
                   <LinkButton href="https://x.com/ykob0123" target="_blank">
                     <svg
@@ -120,5 +120,12 @@ const styles = {
     position: sticky;
     top: 0;
     left: 0;
+  `,
+  socialLinks: css`
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   `,
 };
