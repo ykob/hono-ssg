@@ -12,8 +12,8 @@ export function Article({ date, description, html, title }: ArticleProps) {
   return (
     <div>
       <h1 class={styles.heading}>{title}</h1>
-      <div>{dayjs(date).format('YYYY/MM/DD')}</div>
-      <p>{description}</p>
+      <div>Created At: {dayjs(date).format('YYYY/MM/DD')}</div>
+      <p class={styles.description}>{description}</p>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
@@ -22,5 +22,12 @@ export function Article({ date, description, html, title }: ArticleProps) {
 const styles = {
   heading: css`
     margin-top: 0;
+    margin-bottom: 24px;
+  `,
+  description: css`
+    margin-bottom: 40px;
+    padding: 24px;
+    border-radius: 4px;
+    background-color: #e7e5e4;
   `,
 };
