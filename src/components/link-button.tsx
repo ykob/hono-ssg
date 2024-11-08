@@ -1,14 +1,22 @@
-import { css } from 'hono/css';
+import { css, cx } from 'hono/css';
 import { PropsWithChildren } from 'hono/jsx';
 
 type LinkButtonProps = PropsWithChildren<{
   href: string;
+  square?: boolean;
   target?: string;
 }>;
 
-export function LinkButton({ children, href, target }: LinkButtonProps) {
+export function LinkButton({
+  children,
+  href,
+  square,
+  target,
+}: LinkButtonProps) {
+  const className = cx(styles.button, square ? styles.square : styles.full);
+
   return (
-    <a class={styles.button} href={href} target={target}>
+    <a class={className} href={href} target={target}>
       {children}
     </a>
   );
@@ -16,7 +24,6 @@ export function LinkButton({ children, href, target }: LinkButtonProps) {
 
 const styles = {
   button: css`
-    width: 32px;
     height: 32px;
     display: flex;
     align-items: center;
@@ -31,5 +38,11 @@ const styles = {
     & svg {
       fill: currentColor;
     }
+  `,
+  full: css`
+    width: 100%;
+  `,
+  square: css`
+    width: 32px;
   `,
 };

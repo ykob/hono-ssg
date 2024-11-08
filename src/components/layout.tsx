@@ -45,19 +45,21 @@ export function Layout({ children, description, title, years }: LayoutProps) {
           </main>
           <nav>
             <div class={styles.nav}>
-              <ul>
-                <li>
-                  <a href="/">Home</a>
-                </li>
+              <LinkButton href="/">Home</LinkButton>
+              <ul class={styles.yearArchiveLinks}>
                 {years.map((year) => (
                   <li>
-                    <a href={`/archive/${year}/`}>{year}</a>
+                    <LinkButton href={`/archive/${year}/`}>{year}</LinkButton>
                   </li>
                 ))}
               </ul>
               <ul class={styles.socialLinks}>
                 <li>
-                  <LinkButton href="https://x.com/ykob0123" target="_blank">
+                  <LinkButton
+                    href="https://x.com/ykob0123"
+                    target="_blank"
+                    square
+                  >
                     <svg
                       class="icon"
                       width="24"
@@ -69,7 +71,11 @@ export function Layout({ children, description, title, years }: LayoutProps) {
                   </LinkButton>
                 </li>
                 <li>
-                  <LinkButton href="https://github.com/ykob" target="_blank">
+                  <LinkButton
+                    href="https://github.com/ykob"
+                    target="_blank"
+                    square
+                  >
                     <svg
                       class="icon"
                       width="24"
@@ -92,7 +98,6 @@ export function Layout({ children, description, title, years }: LayoutProps) {
 const styles = {
   container: css`
     display: grid;
-    gap: 24px;
     @media (width < 1024px) {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
@@ -100,7 +105,8 @@ const styles = {
     }
     @media (width >= 1024px) {
       grid-template-columns: 240px 1fr;
-      grid-template-rows: auto 1fr;
+      grid-template-rows: 60px 1fr;
+      column-gap: 24px;
       padding: 40px 80px;
     }
   `,
@@ -116,10 +122,19 @@ const styles = {
     margin-inline: auto;
   `,
   nav: css`
-    display: block;
+    display: grid;
+    gap: 16px;
     position: sticky;
     top: 0;
     left: 0;
+  `,
+  yearArchiveLinks: css`
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   `,
   socialLinks: css`
     display: flex;
