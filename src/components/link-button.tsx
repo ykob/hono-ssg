@@ -29,6 +29,8 @@ const styles = {
     align-items: center;
     justify-content: center;
     border-radius: 6px;
+    color: var(--color-text);
+    text-decoration: none;
     background-color: transparent;
     transition: background-color 0.2s ease;
     &:hover {

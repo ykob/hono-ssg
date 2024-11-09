@@ -101,13 +101,11 @@ const styles = {
     @media (width < 1024px) {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
-      padding: 24px 20px;
     }
     @media (width >= 1024px) {
       grid-template-columns: 240px 1fr;
       grid-template-rows: 60px 1fr;
       column-gap: 24px;
-      padding: 40px 80px;
     }
   `,
   header: css``,
