@@ -28,8 +28,8 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0(hono@4.6.7)
       '@types/node':
-        specifier: ^22.7.5
-        version: 22.7.5
+        specifier: ^22.9.0
+        version: 22.9.0
       eslint:
         specifier: ^9.12.0
         version: 9.12.0
@@ -71,7 +71,7 @@ importers:
         version: 8.8.0(eslint@9.12.0)(typescript@5.6.3)
       vite:
         specifier: ^5.4.8
-        version: 5.4.8(@types/node@22.7.5)
+        version: 5.4.8(@types/node@22.9.0)
       yaml:
         specifier: ^2.5.1
         version: 2.5.1
@@ -408,8 +408,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@22.7.5':
-    resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
+  '@types/node@22.9.0':
+    resolution: {integrity: sha512-vuyHg81vvWA1Z1ELfvLko2c8f34gyA0zaic0+Rllc5lbCnbSyuvb2Oxpm6TAUAC/2xZN3QGqxBNggD1nNR2AfQ==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -1408,7 +1408,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@22.7.5':
+  '@types/node@22.9.0':
     dependencies:
       undici-types: 6.19.8
 
@@ -2415,13 +2415,13 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@5.4.8(@types/node@22.7.5):
+  vite@5.4.8(@types/node@22.9.0):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
       rollup: 4.24.0
     optionalDependencies:
-      '@types/node': 22.7.5
+      '@types/node': 22.9.0
       fsevents: 2.3.3
 
   which@2.0.2:
