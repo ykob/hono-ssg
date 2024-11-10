@@ -21,6 +21,7 @@ export function Article({ date, description, html, title }: ArticleProps) {
 
 const styles = {
   heading: css`
+    line-height: 1.2;
     margin-top: 0;
     margin-bottom: 24px;
   `,

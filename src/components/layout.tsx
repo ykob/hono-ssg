@@ -36,16 +36,15 @@ export function Layout({ children, description, title, years }: LayoutProps) {
       <body class={globalStyles}>
         <div class={styles.container}>
           <header class={styles.header}>
-            <div>
-              <a href="/">hono-ssg</a>
-            </div>
+            <a href="/">hono-ssg</a>
           </header>
           <main class={styles.main}>
             <div class={styles.mainIn}>{children}</div>
           </main>
-          <nav>
-            <div class={styles.nav}>
+          <nav class={styles.nav}>
+            <div class={styles.navInner}>
               <LinkButton href="/">Home</LinkButton>
+              <h2 class={styles.subHeading}>Yearly Archive</h2>
               <ul class={styles.yearArchiveLinks}>
                 {years.map((year) => (
                   <li>
@@ -97,6 +96,7 @@ export function Layout({ children, description, title, years }: LayoutProps) {
 
 const styles = {
   container: css`
+    min-height: 100dvh;
     display: grid;
     @media (width < 1024px) {
       grid-template-columns: 1fr;
@@ -105,14 +105,21 @@ const styles = {
     @media (width >= 1024px) {
       grid-template-columns: 240px 1fr;
       grid-template-rows: 60px 1fr;
-      column-gap: 24px;
     }
   `,
-  header: css``,
+  header: css`
+    padding-inline: 16px;
+  `,
   main: css`
+    @media (width < 1024px) {
+      grid-column: 1;
+      grid-row: 2;
+      padding: 24px 20px;
+    }
     @media (width >= 1024px) {
       grid-column: 2;
       grid-row: 1 / 3;
+      padding: 60px 40px;
     }
   `,
   mainIn: css`
@@ -120,16 +127,25 @@ const styles = {
     margin-inline: auto;
   `,
   nav: css`
+    background-color: #ddd;
+  `,
+  navInner: css`
     display: grid;
     gap: 16px;
+    padding: 16px;
     position: sticky;
     top: 0;
     left: 0;
   `,
+  subHeading: css`
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  `,
   yearArchiveLinks: css`
     display: grid;
     gap: 8px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     list-style: none;
     margin: 0;
     padding: 0;
