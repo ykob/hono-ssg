@@ -25,9 +25,9 @@ export function LinkButton({
 const styles = {
   button: css`
     height: 32px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: center;
     border-radius: 6px;
     color: var(--color-text);
     text-decoration: none;
@@ -43,8 +43,11 @@ const styles = {
   `,
   full: css`
     width: 100%;
+    padding-inline: 6px;
+    justify-content: flex-start;
   `,
   square: css`
     width: 32px;
+    justify-content: center;
   `,
 };

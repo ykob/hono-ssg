@@ -108,6 +108,8 @@ const styles = {
     }
   `,
   header: css`
+    display: flex;
+    align-items: center;
     padding-inline: 16px;
   `,
   main: css`
