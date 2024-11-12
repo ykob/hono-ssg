@@ -14,7 +14,7 @@ export function Article({ date, description, html, title }: ArticleProps) {
       <h1 class={styles.heading}>{title}</h1>
       <div>Created At: {dayjs(date).format('YYYY/MM/DD')}</div>
       <p class={styles.description}>{description}</p>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div class={styles.content} dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
 }
@@ -30,5 +30,13 @@ const styles = {
     padding: 24px;
     border-radius: 4px;
     background-color: #e7e5e4;
+  `,
+  content: css`
+    blockquote {
+      margin-left: 0;
+      padding: 4px 24px;
+      border-left: 8px solid #a8a29e;
+      background-color: #e7e5e4;
+    }
   `,
 };
