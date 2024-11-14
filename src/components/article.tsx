@@ -32,6 +32,31 @@ const styles = {
     background-color: #e7e5e4;
   `,
   content: css`
+    h2 {
+      margin-top: 3.6rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    h3 {
+      margin-top: 3.2rem;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    h4 {
+      margin-top: 2.4rem;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+    h5 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    h6 {
+      margin-top: 1.6rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
     blockquote {
       margin-left: 0;
       padding: 4px 24px;
