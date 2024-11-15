@@ -36,7 +36,9 @@ export function Layout({ children, description, title, years }: LayoutProps) {
       <body class={globalStyles}>
         <div class={styles.container}>
           <header class={styles.header}>
-            <a href="/">hono-ssg</a>
+            <a class={styles.headerLink} href="/">
+              hono-ssg
+            </a>
           </header>
           <main class={styles.main}>
             <div class={styles.mainIn}>{children}</div>
@@ -111,6 +113,13 @@ const styles = {
     display: flex;
     align-items: center;
     padding-inline: 16px;
+    background-color: var(--color-bg-nav);
+  `,
+  headerLink: css`
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
   `,
   main: css`
     @media (width < 1024px) {
@@ -129,7 +138,8 @@ const styles = {
     margin-inline: auto;
   `,
   nav: css`
-    background-color: #ddd;
+    color: #fff;
+    background-color: var(--color-bg-nav);
   `,
   navInner: css`
     display: grid;

@@ -29,13 +29,14 @@ const styles = {
     display: flex;
     align-items: center;
     border-radius: 6px;
-    color: var(--color-text);
+    color: var(--color-text-revert);
     text-decoration: none;
+    font-weight: 500;
     background-color: transparent;
     transition: background-color 0.2s ease;
     &:hover {
-      color: #fff;
-      background-color: #e11d48;
+      color: var(--color-text);
+      background-color: var(--color-link);
     }
     & svg {
       fill: currentColor;

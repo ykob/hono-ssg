@@ -29,7 +29,7 @@ const styles = {
     margin-bottom: 40px;
     padding: 24px;
     border-radius: 4px;
-    background-color: #e7e5e4;
+    background-color: var(--color-bg-secondary);
   `,
   content: css`
     h2 {
