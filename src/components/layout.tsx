@@ -40,9 +40,7 @@ export function Layout({ children, description, title, years }: LayoutProps) {
               hono-ssg
             </a>
           </header>
-          <main class={styles.main}>
-            <div class={styles.mainIn}>{children}</div>
-          </main>
+          <div class={styles.main}>{children}</div>
           <nav class={styles.nav}>
             <div class={styles.navInner}>
               <LinkButton href="/">Home</LinkButton>
@@ -125,17 +123,11 @@ const styles = {
     @media (width < 1024px) {
       grid-column: 1;
       grid-row: 2;
-      padding: 24px 20px;
     }
     @media (width >= 1024px) {
       grid-column: 2;
       grid-row: 1 / 3;
-      padding: 60px 40px;
     }
-  `,
-  mainIn: css`
-    max-width: 1024px;
-    margin-inline: auto;
   `,
   nav: css`
     color: #fff;
