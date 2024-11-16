@@ -15,7 +15,7 @@
   "dependencies": {
     "@mdi/js": "^7.4.47",
     "dayjs": "^1.11.13",
-    "hono": "^4.6.7"
+    "hono": "^4.6.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

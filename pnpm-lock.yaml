@@ -15,18 +15,18 @@ importers:
         specifier: ^1.11.13
         version: 1.11.13
       hono:
-        specifier: ^4.6.7
-        version: 4.6.7
+        specifier: ^4.6.10
+        version: 4.6.10
     devDependencies:
       '@eslint/js':
         specifier: ^9.13.0
         version: 9.13.0
       '@hono/vite-dev-server':
         specifier: ^0.16.0
-        version: 0.16.0(hono@4.6.7)
+        version: 0.16.0(hono@4.6.10)
       '@hono/vite-ssg':
         specifier: ^0.1.0
-        version: 0.1.0(hono@4.6.7)
+        version: 0.1.0(hono@4.6.10)
       '@types/node':
         specifier: ^22.7.5
         version: 22.7.5
@@ -708,8 +708,8 @@ packages:
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
-  hono@4.6.7:
-    resolution: {integrity: sha512-wX4ZbOnzfNO61hUjuQbJ7OPGs1fWXXVVJ8VTPDb2Ls/x9HjCbVTm80Je6VTHMz5n5RGDtBgV9d9ZFZxBqx56ng==}
+  hono@4.6.10:
+    resolution: {integrity: sha512-IXXNfRAZEahFnWBhUUlqKEGF9upeE6hZoRZszvNkyAz/CYp+iVbxm3viMvStlagRJohjlBRGOQ7f4jfcV0XMGg==}
     engines: {node: '>=16.9.0'}
 
   html-void-elements@3.0.0:
@@ -1303,19 +1303,19 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@hono/node-server@1.13.1(hono@4.6.7)':
+  '@hono/node-server@1.13.1(hono@4.6.10)':
     dependencies:
-      hono: 4.6.7
+      hono: 4.6.10
 
-  '@hono/vite-dev-server@0.16.0(hono@4.6.7)':
+  '@hono/vite-dev-server@0.16.0(hono@4.6.10)':
     dependencies:
-      '@hono/node-server': 1.13.1(hono@4.6.7)
-      hono: 4.6.7
+      '@hono/node-server': 1.13.1(hono@4.6.10)
+      hono: 4.6.10
       minimatch: 9.0.5
 
-  '@hono/vite-ssg@0.1.0(hono@4.6.7)':
+  '@hono/vite-ssg@0.1.0(hono@4.6.10)':
     dependencies:
-      hono: 4.6.7
+      hono: 4.6.10
 
   '@humanfs/core@0.19.0': {}
 
@@ -1764,7 +1764,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  hono@4.6.7: {}
+  hono@4.6.10: {}
 
   html-void-elements@3.0.0: {}
 
