@@ -22,6 +22,7 @@ export const globalStyles = css`
       font-family: 'Noto Sans JP', serif;
       font-optical-sizing: auto;
       font-style: normal;
+      background-color: var(--color-bg-secondary);
     }
     a {
       color: var(--color-link);

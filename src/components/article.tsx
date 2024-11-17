@@ -12,9 +12,11 @@ export function Article({ date, description, html, title }: ArticleProps) {
   return (
     <article>
       <header class={styles.header}>
-        <h1 class={styles.heading}>{title}</h1>
-        <div>Created At: {dayjs(date).format('YYYY/MM/DD')}</div>
-        <p class={styles.description}>{description}</p>
+        <div class={styles.headerInner}>
+          <h1 class={styles.heading}>{title}</h1>
+          <div>Created At: {dayjs(date).format('YYYY/MM/DD')}</div>
+          <p class={styles.description}>{description}</p>
+        </div>
       </header>
       <div class={styles.content}>
         <div
@@ -28,25 +30,29 @@ export function Article({ date, description, html, title }: ArticleProps) {
 
 const styles = {
   header: css`
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  `,
+  headerInner: css`
     max-width: 1024px;
     margin-inline: auto;
     @media (width < 1024px) {
-      padding: 24px 40px;
+      padding: 24px 20px;
     }
     @media (width >= 1024px) {
-      padding: 60px 80px;
+      padding: 60px 40px;
     }
   `,
   heading: css`
     line-height: 1.2;
     margin-top: 0;
     margin-bottom: 24px;
+    font-size: 2.4rem;
   `,
   description: css`
     margin-bottom: 0;
   `,
   content: css`
-    background-color: var(--color-bg-secondary);
     @media (width < 1024px) {
       padding: 24px 20px;
     }
@@ -58,6 +64,7 @@ const styles = {
     max-width: 1024px;
     margin-inline: auto;
     background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     @media (width < 1024px) {
       padding: 24px 20px;
     }
