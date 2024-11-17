@@ -10,6 +10,10 @@ export const globalStyles = css`
       --color-attention: #e3b23c;
       --color-link: #dca21c;
     }
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-bg-nav) var(--color-bg-secondary);
+    }
     body {
       margin: 0;
       padding: 0;
