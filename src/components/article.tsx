@@ -35,6 +35,7 @@ const styles = {
   `,
   headerInner: css`
     max-width: 1024px;
+    box-sizing: border-box;
     margin-inline: auto;
     @media (width < 1024px) {
       padding: 24px 20px;
@@ -62,6 +63,7 @@ const styles = {
   `,
   contentInner: css`
     max-width: 1024px;
+    box-sizing: border-box;
     margin-inline: auto;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);

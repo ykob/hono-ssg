@@ -19,21 +19,47 @@ export function ArticleListItem({
 
   return (
     <a class={styles.container} href={`/posts/${id}/`}>
-      <Heading>{title}</Heading>
-      <p>{dayjs(date).format('YYYY/MM/DD')}</p>
-      <p>{description}</p>
+      <p class={styles.date}>{dayjs(date).format('YYYY/MM/DD')}</p>
+      <div class={styles.content}>
+        <Heading class={styles.heading}>{title}</Heading>
+        <p class={styles.description}>{description}</p>
+      </div>
     </a>
   );
 }
 
 const styles = {
   container: css`
-    display: block;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
     box-sizing: border-box;
-    padding: 24px 20px;
     color: #333;
     text-decoration: none;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    @media (width < 1024px) {
+      padding: 16px 20px;
+    }
+    @media (width >= 1024px) {
+      padding: 32px 40px;
+    }
+  `,
+  date: css`
+    line-height: 1.2;
+    margin: 0;
+    font-size: 1.6rem;
+  `,
+  content: css`
+    display: grid;
+    gap: 8px;
+  `,
+  heading: css`
+    line-height: 1.2;
+    margin: 0;
+    font-size: 2rem;
+  `,
+  description: css`
+    margin: 0;
   `,
 };
