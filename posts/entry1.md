@@ -1,5 +1,5 @@
 ---
-title: "Entry 1"
+title: "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
 date: "2024-01-01T10:00:00+09:00"
 description: "This is the first entry."
 ---
