@@ -39,22 +39,24 @@ const styles = {
   `,
   inner: css`
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 24px;
     box-sizing: border-box;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     @media (width < 1024px) {
+      gap: 12px;
       padding: 24px 20px;
     }
     @media (width >= 1024px) {
+      grid-template-columns: auto 1fr;
+      gap: 32px;
       padding: 32px 40px;
     }
   `,
   date: css`
     line-height: 1.2;
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
   `,
   content: css`
     display: grid;
@@ -65,7 +67,10 @@ const styles = {
     margin-top: -0.14em;
     margin-bottom: 0;
     font-size: 2rem;
-    font-weight: 500;
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+    }
   `,
   description: css`
     margin: 0;
