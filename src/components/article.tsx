@@ -34,14 +34,13 @@ const styles = {
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
   `,
   headerInner: css`
-    max-width: 1024px;
-    box-sizing: border-box;
+    max-width: 1120px;
     margin-inline: auto;
     @media (width < 1024px) {
-      padding: 24px 20px;
+      padding: 24px 40px;
     }
     @media (width >= 1024px) {
-      padding: 60px 40px;
+      padding: 60px 80px;
     }
   `,
   heading: css`
@@ -54,6 +53,8 @@ const styles = {
     margin-bottom: 0;
   `,
   content: css`
+    max-width: 1200px;
+    margin-inline: auto;
     @media (width < 1024px) {
       padding: 24px 20px;
     }
@@ -62,9 +63,6 @@ const styles = {
     }
   `,
   contentInner: css`
-    max-width: 1024px;
-    box-sizing: border-box;
-    margin-inline: auto;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     @media (width < 1024px) {

@@ -10,7 +10,13 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import yaml from 'yaml';
-import { Article, ArticleList, ArticleListItem, Layout } from './components';
+import {
+  Article,
+  ArticleList,
+  ArticleListItem,
+  HomeHeader,
+  Layout,
+} from './components';
 
 const app = new Hono();
 const processor = remark()
@@ -73,14 +79,13 @@ const loadYears = async () => {
 
 app.get('/', async (c) => {
   const markdown = fs.readFileSync('./src/index.md', 'utf-8');
-  const { html, props } = await convertMarkdownToHtml(markdown);
+  const { props } = await convertMarkdownToHtml(markdown);
   const posts = await loadPosts();
   const years = await loadYears();
 
   return c.html(
     <Layout {...props} years={years}>
-      <h1>hono-ssg</h1>
-      <div dangerouslySetInnerHTML={{ __html: String(html) }} />
+      <HomeHeader />
       <ArticleList>
         {posts.map(async ({ ...props }) => {
           return <ArticleListItem key={props.id} {...props} />;

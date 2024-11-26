@@ -7,7 +7,7 @@ export function ArticleList({ children }: PropsWithChildren) {
 
 const styles = {
   container: css`
-    box-sizing: border-box;
+    max-width: 1200px;
     container-type: 'inline-size';
     display: grid;
     gap: 24px;
@@ -16,7 +16,6 @@ const styles = {
       padding: 24px 20px;
     }
     @media (width >= 1024px) {
-      max-width: 1104px;
       padding: 60px 40px;
     }
   `,
