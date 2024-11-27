@@ -44,12 +44,12 @@ const styles = {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     @media (width < 1024px) {
       gap: 12px;
-      padding: 24px 20px;
+      padding: 32px 20px;
     }
     @media (width >= 1024px) {
       grid-template-columns: auto 1fr;
       gap: 32px;
-      padding: 32px 40px;
+      padding: 48px 40px;
     }
   `,
   date: css`
@@ -64,7 +64,7 @@ const styles = {
   `,
   heading: css`
     line-height: 1.2;
-    margin-top: -0.14em;
+    margin-top: -0.16em;
     margin-bottom: 0;
     font-size: 2rem;
     a {
