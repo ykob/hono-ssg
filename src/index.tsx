@@ -132,15 +132,11 @@ app.get(
     return c.html(
       <Layout years={years} {...props}>
         <h1>Archive {year}</h1>
-        <ul>
-          {posts.map((post) => (
-            <li>
-              <a href={`/posts/${post.id}/`}>
-                {dayjs(post.date).format('YYYY/MM/DD')} {post.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <ArticleList>
+          {posts.map(async ({ ...props }) => {
+            return <ArticleListItem key={props.id} {...props} />;
+          })}
+        </ArticleList>
       </Layout>,
     );
   },
