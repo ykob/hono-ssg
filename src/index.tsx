@@ -2,6 +2,7 @@ import fs from 'fs';
 import { Hono } from 'hono';
 import { ssgParams } from 'hono/ssg';
 import {
+  ArchiveHeader,
   Article,
   ArticleList,
   ArticleListItem,
@@ -81,7 +82,7 @@ app.get(
 
     return c.html(
       <Layout years={years} {...props}>
-        <h1>Archive {year}</h1>
+        <ArchiveHeader title={`Archive ${year}`} />
         <ArticleList>
           {posts.map(async ({ ...props }) => {
             return <ArticleListItem key={props.id} {...props} />;
