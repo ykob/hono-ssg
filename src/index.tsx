@@ -15,10 +15,12 @@ const app = new Hono();
 const postFiles = fs.readdirSync('./posts');
 
 app.get('/', async (c) => {
-  const markdown = fs.readFileSync('./src/index.md', 'utf-8');
-  const { props } = await convertMarkdownToHtml(markdown);
   const posts = await loadPosts();
   const years = await loadYears();
+  const props = {
+    title: 'hono-ssg',
+    description: 'Static Site Generator for Hono',
+  };
 
   return c.html(
     <Layout {...props} years={years}>
