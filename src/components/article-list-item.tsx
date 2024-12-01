@@ -70,6 +70,10 @@ const styles = {
     a {
       color: var(--color-text);
       text-decoration: none;
+      transition: color 0.1s;
+    }
+    a :hover {
+      color: var(--color-link);
     }
   `,
   description: css`
