@@ -3,6 +3,7 @@ import { css, Style } from 'hono/css';
 import { PropsWithChildren } from 'hono/jsx';
 import { globalStyles } from '../styles/global';
 import { LinkButton } from './';
+import { GlobalHeader } from './global-header';
 
 type LayoutProps = PropsWithChildren<{
   description: string;
@@ -35,11 +36,7 @@ export function Layout({ children, description, title, years }: LayoutProps) {
       </head>
       <body class={globalStyles}>
         <div class={styles.container}>
-          <header class={styles.header}>
-            <a class={styles.headerLink} href="/">
-              hono-ssg
-            </a>
-          </header>
+          <GlobalHeader />
           <div class={styles.main}>{children}</div>
           <nav class={styles.nav}>
             <div class={styles.navInner}>
@@ -106,18 +103,6 @@ const styles = {
       grid-template-columns: 240px 1fr;
       grid-template-rows: 60px 1fr;
     }
-  `,
-  header: css`
-    display: flex;
-    align-items: center;
-    padding-inline: 16px;
-    background-color: var(--color-bg-nav);
-  `,
-  headerLink: css`
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-decoration: none;
   `,
   main: css`
     @media (width < 1024px) {
