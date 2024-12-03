@@ -121,23 +121,34 @@ const styles = {
   navInner: css`
     display: grid;
     gap: 16px;
-    padding: 16px;
     position: sticky;
     top: 0;
     left: 0;
+    @media (width < 1024px) {
+      padding: 24px 16px 48px;
+    }
+    @media (width >= 1024px) {
+      padding: 16px;
+    }
   `,
   subHeading: css`
-    margin: 0;
+    margin: 0 6px;
+    color: var(--color-text-revert-secondary);
     font-size: 1rem;
     font-weight: 500;
   `,
   yearArchiveLinks: css`
-    display: grid;
     gap: 8px;
-    grid-template-columns: 1fr 1fr;
     list-style: none;
     margin: 0;
     padding: 0;
+    @media (width < 1024px) {
+      display: flex;
+    }
+    @media (width >= 1024px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
   `,
   socialLinks: css`
     display: flex;

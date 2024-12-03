@@ -5,6 +5,7 @@ export const globalStyles = css`
     :root {
       --color-text: #292622;
       --color-text-revert: #ffffff;
+      --color-text-revert-secondary: #999999;
       --color-bg-nav: #423e37;
       --color-bg-secondary: #edebd7;
       --color-attention: #e3b23c;
@@ -22,6 +23,7 @@ export const globalStyles = css`
       font-family: 'Noto Sans JP', serif;
       font-optical-sizing: auto;
       font-style: normal;
+      letter-spacing: 0.06em;
       background-color: var(--color-bg-secondary);
     }
     a {
