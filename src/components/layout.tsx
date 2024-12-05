@@ -50,7 +50,7 @@ const styles = {
     display: grid;
     @media (width < 1024px) {
       grid-template-columns: 1fr;
-      grid-template-rows: auto;
+      grid-template-rows: 48px auto 1fr;
     }
     @media (width >= 1024px) {
       grid-template-columns: 240px 1fr;
