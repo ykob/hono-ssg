@@ -11,7 +11,11 @@ export function SideNavi({ years }: SideNaviProps) {
   return (
     <nav class={styles.container}>
       <div class={styles.inner}>
-        <LinkButton href="/">Home</LinkButton>
+        <ul class={styles.mainLinks}>
+          <li>
+            <LinkButton href="/">Home</LinkButton>
+          </li>
+        </ul>
         <h2 class={styles.subHeading}>Yearly Archive</h2>
         <ul class={styles.yearArchiveLinks}>
           {years.map((year) => (
@@ -57,6 +61,19 @@ const styles = {
     }
     @media (width >= 1024px) {
       padding: 16px;
+    }
+  `,
+  mainLinks: css`
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @media (width < 1024px) {
+      display: flex;
+    }
+    @media (width >= 1024px) {
+      display: grid;
+      grid-template-columns: 1fr;
     }
   `,
   subHeading: css`
